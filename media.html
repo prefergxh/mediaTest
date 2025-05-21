@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式布局</title>
+    <link rel="stylesheet" href="./css/all.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .nav-bar {
+            height: 60px;
+            background-color: rgba(0, 0, 0, .85);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 16px;
+            color: white;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .nav-bar .nav-icon {
+            width: 34px;
+            height: 34px;
+        }
+
+        .nav-bar .space {
+            flex: auto;
+        }
+
+        .nav-bar .userinfo {
+            margin-right: 40px;
+        }
+
+        .nav-bar .userinfo:active .userinfo-intro {
+            display: flex;
+        }
+
+        .nav-bar .userinfo .userinfo-intro {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            position: absolute;
+            background-color: rgba(0, 0, 0, .85);
+            width: 100%;
+            height: 60px;
+            left: 0;
+            top: 60px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .nav-bar .userinfo .userinfo-intro::before {
+            content: "";
+            position: absolute;
+            width: 80%;
+            height: 1px;
+            /* background-color: #333; */
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        .nav-bar .userinfo .userinfo-intro .login {
+            color: white;
+            flex: auto;
+            text-align: center;
+        }
+
+        .nav-bar .userinfo .userinfo-intro .register {
+            color: white;
+            flex: auto;
+            text-align: center;
+        }
+
+        .nav-bar .menu:active .menu-intro {
+            display: block;
+        }
+
+        .nav-bar .menu .menu-intro {
+            display: none;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: black;
+        }
+
+        .nav-bar .menu .menu-intro::before {
+            content: "";
+            position: absolute;
+            width: 80%;
+            height: 1px;
+            background-color: #333;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        .nav-bar .menu .menu-intro li {
+            padding: 32px 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 24px;
+            color: white;
+            align-items: center;
+            margin: 0 40px;
+        }
+
+        .nav-bar .menu .menu-intro li a {
+            color: white;
+        }
+
+        @media (min-width:960px) {
+            .nav-bar {
+                justify-content: space-between;
+                padding: 0 20px;
+            }
+
+            .nav-bar .userinfo i {
+                display: none;
+            }
+
+            .nav-bar .menu i {
+                display: none;
+            }
+
+            .nav-bar .userinfo {
+                order: 3;
+            }
+
+            .nav-bar .menu {
+                order: 2;
+            }
+
+            .nav-bar .userinfo .userinfo-intro {
+                position: static;
+                display: flex;
+                font-size: 14px;
+                height: 20px;
+                line-height: 20px;
+                width: 100px;
+                background-color: #262626;
+            }
+
+            .nav-bar .userinfo .userinfo-intro a {
+                background-color: #262626;
+            }
+
+
+            .nav-bar .menu .menu-intro li i {
+                display: none;
+            }
+
+            .nav-bar .space {
+                display: none;
+            }
+
+            .nav-bar .menu .menu-intro {
+                position: static;
+                width: 700px;
+                height: 20px;
+                line-height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #262626;
+                flex-shrink: 1;
+            }
+
+            .nav-bar .menu .menu-intro li {
+                /* width: 70px; */
+                padding: 0 0;
+                margin: 0 0;
+            }
+
+            .nav-bar .menu .menu-intro li:hover a {
+                color: orange;
+            }
+
+            .nav-bar .menu .menu-intro li a {
+                font-size: 14px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <a href="#" class="nav-icon"><svg data-v-777bda80="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 808 808"
+                class="mi-logo">
+                <g data-v-777bda80="">
+                    <path data-v-777bda80="" fill="#ff6900"
+                        d="M723.79,84.42C647.55,8.48,537.94,0,404,0,269.89,0,160.12,8.58,83.92,84.72S0,270.43,0,404.39,7.74,648,84,724.14,269.9,808,404,808s243.85-7.71,320-83.86,84-185.78,84-319.75C808,270.25,800.16,160.54,723.79,84.42Z">
+                    </path>
+                    <path data-v-777bda80="" fill="#fff"
+                        d="M374.26,553.72a5,5,0,0,1-5.06,5H300.3a5.05,5.05,0,0,1-5.12-5V373.53a5.05,5.05,0,0,1,5.12-5h68.9a5,5,0,0,1,5.06,5Z">
+                    </path>
+                    <path data-v-777bda80="" fill="#fff"
+                        d="M509.18,553.72a5.05,5.05,0,0,1-5.09,5H438.5a5,5,0,0,1-5.1-5V398.26c-.07-27.15-1.62-55-15.64-69.06-12-12.09-34.51-14.86-57.88-15.44H241a5,5,0,0,0-5.07,5v235a5.07,5.07,0,0,1-5.12,5H165.16a5,5,0,0,1-5.06-5V254.31a5,5,0,0,1,5.06-5H354.52c49.49,0,101.22,2.26,126.74,27.81s27.92,77.3,27.92,126.85Z">
+                    </path>
+                    <path data-v-777bda80="" fill="#fff"
+                        d="M644.29,553.72a5.06,5.06,0,0,1-5.09,5H573.57a5,5,0,0,1-5.08-5V254.31a5,5,0,0,1,5.08-5H639.2a5.06,5.06,0,0,1,5.09,5Z">
+                    </path>
+                </g>
+            </svg></a>
+        <div class="space"></div>
+        <div class="userinfo">
+            <i class="fa-solid fa-user"></i>
+            <div class="userinfo-intro">
+                <a class="login" href="#">登录</a>
+                <span>|</span>
+                <a class="register" href="#">注册</a>
+            </div>
+        </div>
+        <div class="menu">
+            <i class="fa-solid fa-bars"></i>
+            <ul class="menu-intro">
+                <li>
+                    <a href="#">小米官网</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">小米商城</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">小米澎湃OS</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">小米汽车</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">小米影像</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">云服务</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">loT</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">有品</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">小爱开放平台</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">Location</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
